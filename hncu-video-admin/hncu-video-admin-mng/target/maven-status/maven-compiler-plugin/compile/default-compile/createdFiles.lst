@@ -1,0 +1,5 @@
+cn\hncu\controller\UsersController.class
+cn\hncu\controller\VideoController.class
+cn\hncu\interceptor\LoginInterceptor.class
+cn\hncu\controller\HelloController.class
+cn\hncu\bean\AdminUser.class
