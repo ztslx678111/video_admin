@@ -6,6 +6,7 @@ import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +23,10 @@ public class VideoController {
 
 	//@Autowired
 	//private UsersServiceImpl usersService;
-
+   
+	@Value("${FILE_SPACE}")
+	private String FILE_SPACE;
+	
 	@GetMapping("/showAddBgm")
 	public String showAddBgm() {
 		return "video/addBgm";
@@ -33,9 +37,9 @@ public class VideoController {
 	public hncuJSONResult bgmUpload(@RequestParam("file") MultipartFile[] files) throws Exception {
 
 		// 文件保存的路径
-		// String fileSpace = "D:" + File.separator + "hncu_videos_dev" + File.separator
+		// String fileSpace = "C:" + File.separator + "hncu_videos_dev" + File.separator
 		// + "mvc_bgm";
-		String fileSpace = File.separator + "hncu_videos_dev" + File.separator + "mvc_bgm";
+		//String fileSpace = File.separator + "hncu_videos_dev" + File.separator + "mvc_bgm";
 		// 保存到数据库中的相对路径
 		String uploadPathDB = File.separator + "bgm";
 
@@ -47,7 +51,7 @@ public class VideoController {
 				String fileName = files[0].getOriginalFilename();
 				if (StringUtils.isNotBlank(fileName)) {
 					// 文件上传的最终保存路径
-					String finalPath = fileSpace + uploadPathDB + File.separator + fileName;
+					String finalPath = FILE_SPACE + uploadPathDB + File.separator + fileName;
 					// 设置数据库保存的路径
 					uploadPathDB += (File.separator + fileName);
 
