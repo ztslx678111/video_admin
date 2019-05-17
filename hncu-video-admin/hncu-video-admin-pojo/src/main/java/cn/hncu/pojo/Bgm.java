@@ -1,12 +1,21 @@
 package cn.hncu.pojo;
 
 public class Bgm {
+	/**
+	 * id
+	 */
     private String id;
-
+    /**
+     * 作者 
+     */
     private String author;
-
+    /**
+     * 歌名
+     */
     private String name;
-
+    /**
+     * 路径
+     */
     private String path;
 
     public String getId() {

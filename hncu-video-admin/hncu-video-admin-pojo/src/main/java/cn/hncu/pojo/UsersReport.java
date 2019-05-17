@@ -3,19 +3,19 @@ package cn.hncu.pojo;
 import java.util.Date;
 
 public class UsersReport {
-    private String id;
+    private String id;//id
 
-    private String dealUserId;
+    private String dealUserId;//被举报用户id
 
-    private String dealVideoId;
+    private String dealVideoId;//被举报视频id
 
-    private String title;
+    private String title;//标题
 
-    private String content;
+    private String content;//举报内容
 
-    private String userid;
+    private String userid;//用户id
 
-    private Date createDate;
+    private Date createDate;//日期
 
     public String getId() {
         return id;

@@ -97,13 +97,16 @@
     	pasteZone: "#bgmContent",
     	dataType: "json",
     	done: function(e, data) {
-    		console.log(data);
+    		console.log("data:"+data);
     		
     		if (data.result.status != '200') {
-    			alert("长传失败...");
+    			alert("上传失败...");
     		} else {
     			var bgmServer = $("#bgmServer").val();
     			var url = bgmServer + data.result.data;
+    			console.log("url:"+url);
+    			console.log("bgmServer:"+bgmServer);
+    			console.log("data.result.data:"+data.result.data)
     			$("#bgmContent").html("<a href='" + url + "' target='_blank'>点我播放</a>");
     			$("#path").attr("value", data.result.data);
     		}

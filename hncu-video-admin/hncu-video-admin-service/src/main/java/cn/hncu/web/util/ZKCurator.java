@@ -10,14 +10,17 @@ public class ZKCurator {
 
 	// zk客户端
 	private CuratorFramework client = null;	
+	//日志记录
 	final static Logger log = LoggerFactory.getLogger(ZKCurator.class);
 	
+	//构造函数
 	public ZKCurator(CuratorFramework client) {
 		this.client = client;
 	}
 	
+	//初始化
 	public void init() {
-		client = client.usingNamespace("admin");
+		client = client.usingNamespace("admin");//使用命名空间 命名为admin
 		
 		try {
 			// 判断在admin命名空间下是否有bgm节点  /admin/bmg

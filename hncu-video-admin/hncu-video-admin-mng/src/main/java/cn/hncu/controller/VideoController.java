@@ -6,6 +6,7 @@ import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,23 +16,88 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import cn.hncu.enums.VideoStatusEnum;
+import cn.hncu.pojo.Bgm;
+import cn.hncu.service.VideoService;
+import cn.hncu.utils.PagedResult;
 import cn.hncu.utils.hncuJSONResult;
 
 @Controller
 @RequestMapping("video")
 public class VideoController {
-
-	//@Autowired
-	//private UsersServiceImpl usersService;
-   
+	
+	@Autowired
+	private VideoService videoService;
+	
 	@Value("${FILE_SPACE}")
 	private String FILE_SPACE;
 	
+	@GetMapping("/showBgmList")
+	public String showBgmList() {
+		return "video/bgmList";
+	}
+    
+	@GetMapping("/showReportList")
+	public String showReportList() {
+		return "video/reportList";
+	}
+	
+	@GetMapping("/showVideoList")
+	public String showVideoList() {
+		return "video/videoList";	
+	}
+	
+	@PostMapping("/videoList")
+	@ResponseBody
+	public PagedResult videoList(String videoDesc, String username, Integer page) {
+		
+		PagedResult result = videoService.selectAllVideos(videoDesc, username, page, 10);
+		return result;
+	}
+	
+	@PostMapping("/reportList")
+	@ResponseBody
+	public PagedResult reportList(Integer page) {
+		
+		PagedResult result = videoService.queryReportList(page, 10);
+		return result;
+	}
+	
+	@PostMapping("/forbidVideo")
+	@ResponseBody
+	public hncuJSONResult forbidVideo(String videoId) {
+		
+		videoService.updateVideoStatus(videoId, VideoStatusEnum.FORBID.value);
+		return hncuJSONResult.ok();
+	}
+	
+	@PostMapping("/queryBgmList")
+	@ResponseBody
+	public PagedResult queryBgmList(Integer page) {
+		return videoService.queryBgmList(page, 10);
+	}
+	
 	@GetMapping("/showAddBgm")
-	public String showAddBgm() {
+	public String login() {
 		return "video/addBgm";
 	}
-
+	
+	@PostMapping("/addBgm")
+	@ResponseBody
+	public hncuJSONResult addBgm(Bgm bgm) {
+		
+		videoService.addBgm(bgm);
+		return hncuJSONResult.ok();
+	}
+	
+	@PostMapping("/delBgm")
+	@ResponseBody
+	public hncuJSONResult delBgm(String bgmId) {
+		videoService.deleteBgm(bgmId);
+		return hncuJSONResult.ok();
+	}
+	
+	
 	@PostMapping("/bgmUpload")
 	@ResponseBody
 	public hncuJSONResult bgmUpload(@RequestParam("file") MultipartFile[] files) throws Exception {

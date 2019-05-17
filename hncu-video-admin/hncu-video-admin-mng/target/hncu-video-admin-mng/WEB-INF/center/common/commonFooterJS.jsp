@@ -7,14 +7,14 @@
 <script src="<%=request.getContextPath() %>/static/global/plugins/ie8.fix.min.js"></script> 
 <![endif]-->
 
-<!-- 上下文对象路径 -->
+<!-- 上下文对象路径 -->	
 <input type="hidden" id="hdnContextPath" name="hdnContextPath" value="<%=request.getContextPath() %>"/>
 <!-- <input type="hidden" id="apiServer" name="apiServer" value="http://192.168.1.2:8081"/>  -->
 <!-- <input type="hidden" id="bgmServer" name="bgmServer" value="http://192.168.1.2:8080/mvc"/> -->
-<input type="hidden" id="apiServer" name="apiServer" value="https://www.ticktockvideo.com/video"/>
+<input type="hidden" id="apiServer" name="apiServer" value="https://www.ticktockvideo.cn/"/>
 <input type="hidden" id="bgmServer" name="bgmServer" value="http://129.204.220.11/mvc"/>
 
-
+<!-- <input type="hidden" id="bgmServer" name="bgmServer" value="192.168.43.217/mvc"/> -->
 
 <!-- BEGIN CORE PLUGINS -->
 <script src="<%=request.getContextPath() %>/static/global/plugins/jquery.min.js?v=3.1415926" type="text/javascript"></script>

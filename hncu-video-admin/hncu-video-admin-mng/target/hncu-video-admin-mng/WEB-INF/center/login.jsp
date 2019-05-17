@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="leechenxiang" name="author" />
-    
+    	
     <link href="<%=request.getContextPath() %>/static/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="<%=request.getContextPath() %>/static/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
     <link href="<%=request.getContextPath() %>/static/global/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -70,7 +70,7 @@
                 </div>
                 <div class="create-account">
                     <p>
-                        <a href="javascript:;" class="btn-primary btn" id="register-btn">注 册 用 户</a>
+                       <!--  <a href="javascript:;" class="btn-primary btn" id="register-btn">注 册 用 户</a> -->
                     </p>
                 </div>
             </form>

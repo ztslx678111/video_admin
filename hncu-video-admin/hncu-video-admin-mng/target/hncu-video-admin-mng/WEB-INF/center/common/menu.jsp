@@ -65,6 +65,22 @@
                     </ul>
                	</li>
                	
+               	<!-- 视频管理 start -->
+				<li class="nav-item ">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="icon-basket-loaded"></i>
+                        <span class="title">短视频管理</span>
+						<span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+						<li class="nav-item ">
+                            <a id="videoListMenu" href="<%=request.getContextPath() %>/video/showVideoList.action" class="ajaxify nav-link " id="videoList">
+                                <span class="title">短视频列表</span>
+                            </a>
+                        </li>
+                    </ul>
+               	</li>
+               	
                	<!-- 举报管理 start -->
 				<li class="nav-item ">
                     <a href="javascript:;" class="nav-link nav-toggle">

@@ -320,4 +320,33 @@
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  
+  <select id="selectAllVideos" resultType="cn.hncu.pojo.vo.VideosVO" parameterType="String">
+    select 
+    	v.id as id,
+    	v.video_desc as videoDesc,
+    	v.video_path as videoPath,
+    	v.video_seconds as videoSeconds,
+    	v.video_width as videoWidth,
+    	v.video_height as videoHeight,
+    	v.cover_path as coverPath,
+    	v.like_counts as likeCounts,
+    	v.status as status,
+    	v.create_time as createTime,
+    	u.username as username,
+    	b.name as bgmName
+    from 
+    	videos v 
+    left join users u on v.user_id = u.id
+    left join bgm b on v.audio_id = b.id
+    where 
+    	1 =1 
+    	<if test="videoDesc != null and videoDesc != ''" >
+        	and v.video_desc like  '%${videoDesc}%'
+      	</if>
+      	<if test="username != null and username != ''" >
+        	and u.username like '%${username}%'
+      	</if>
+      	order by v.create_time desc
+  </select>
 </mapper>

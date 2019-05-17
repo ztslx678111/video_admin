@@ -1,21 +1,21 @@
 package cn.hncu.pojo;
 
 public class Users {
-    private String id;
+    private String id;//id
 
-    private String username;
+    private String username;//用户名
 
-    private String password;
+    private String password;//用户密码
 
-    private String faceImage;
+    private String faceImage;//头像
 
-    private String nickname;
+    private String nickname;//昵称
 
-    private Integer fansCounts;
+    private Integer fansCounts;//粉丝数量
 
-    private Integer followCounts;
+    private Integer followCounts;//关注数量
 
-    private Integer receiveLikeCounts;
+    private Integer receiveLikeCounts;//收藏数量
 
     public String getId() {
         return id;

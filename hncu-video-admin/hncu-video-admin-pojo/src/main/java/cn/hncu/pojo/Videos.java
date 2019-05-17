@@ -3,29 +3,29 @@ package cn.hncu.pojo;
 import java.util.Date;
 
 public class Videos {
-    private String id;
+    private String id;//id
 
-    private String userId;
+    private String userId;//用户id
 
-    private String audioId;
+    private String audioId;//音频id
 
-    private String videoDesc;
+    private String videoDesc;//视频描述
 
-    private String videoPath;
+    private String videoPath;//视频路径
 
-    private Float videoSeconds;
+    private Float videoSeconds;//视频长度
 
-    private Integer videoWidth;
+    private Integer videoWidth;//视频宽度
 
-    private Integer videoHeight;
+    private Integer videoHeight;//视频高度
 
-    private String coverPath;
+    private String coverPath;//文件路径
 
-    private Long likeCounts;
+    private Long likeCounts;//喜欢数量
 
-    private Integer status;
+    private Integer status;//视频状态
 
-    private Date createTime;
+    private Date createTime;//时间
 
     public String getId() {
         return id;

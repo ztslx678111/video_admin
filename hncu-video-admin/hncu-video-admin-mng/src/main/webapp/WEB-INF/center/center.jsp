@@ -50,7 +50,7 @@
 				    
 				    	<div class="page-content-body">
 				    	
-					        <jsp:include page="imooc.jsp"></jsp:include>
+					        <jsp:include page="show.jsp"></jsp:include>
 					        
 				        </div>
 				        

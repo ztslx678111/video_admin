@@ -2,6 +2,8 @@ package cn.hncu.mapper;
 
 import cn.hncu.pojo.Videos;
 import cn.hncu.pojo.VideosExample;
+import cn.hncu.pojo.vo.VideosVO;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -16,7 +18,7 @@ public interface VideosMapper {
 
     int insertSelective(Videos record);
 
-    List<Videos> selectByExample(VideosExample example);
+    List<Videos> selectByExample();
 
     Videos selectByPrimaryKey(String id);
 
@@ -27,4 +29,7 @@ public interface VideosMapper {
     int updateByPrimaryKeySelective(Videos record);
 
     int updateByPrimaryKey(Videos record);
+    
+    List<VideosVO> selectAllVideos(@Param("videoDesc") String videoDesc, @Param("username") String username);
+    
 }
